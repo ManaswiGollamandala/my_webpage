@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makerble My Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 transition-colors duration-300" id="body">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-500 p-4 flex justify-between items-center">
+        <div>
+            <h1 class="text-white text-2xl">Makerble</h1>
+        </div>
+        <div>
+            <button id="darkModeToggle" class="bg-gray-800 text-white px-4 py-2 rounded">
+                Toggle Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mx-auto mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Sidebar -->
+            <aside class="bg-white p-4 shadow-md" id="sidebar">
+                <h2 class="text-lg font-semibold mb-4">Navigation</h2>
+                <ul>
+                    <li class="mb-2"><a href="#" class="text-blue-500">Dashboard</a></li>
+                    <li class="mb-2"><a href="#" class="text-blue-500">Projects</a></li>
+                    <li class="mb-2"><a href="#" class="text-blue-500">Stories</a></li>
+                    <li class="mb-2"><a href="#" class="text-blue-500">Contacts</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="col-span-2">
+                <h1 class="text-2xl font-bold mb-6">Welcome to Makerble Dashboard</h1>
+
+                <!-- User Info Panel -->
+                <div class="bg-white p-4 shadow-md mb-4">
+                    <h2 class="text-xl font-semibold flex justify-between items-center">
+                        User Information
+                        <span class="cursor-pointer text-blue-500" onclick="toggleUserInfo()">Toggle</span>
+                    </h2>
+                    <div id="userInfo">
+                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Role:</strong> Project Manager</p>
+                        <p><strong>Email:</strong> john@example.com</p>
+                    </div>
+                </div>
+
+                <!-- Projects Overview Panel -->
+                <div class="bg-white p-4 shadow-md mb-4">
+                    <h2 class="text-xl font-semibold flex justify-between items-center">
+                        Projects Overview
+                        <span class="cursor-pointer text-blue-500" onclick="toggleProjects()">Toggle</span>
+                    </h2>
+                    <div id="projectsInfo">
+                        <p>Active Projects: 3</p>
+                        <p>Completed Tasks: <span id="completedTasks">12</span>/15</p>
+                        <button onclick="updateTaskProgress()" class="bg-green-500 text-white px-3 py-2 mt-2 rounded">
+                            Mark Another Task Completed
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Create a Story Panel -->
+                <div class="bg-white p-4 shadow-md">
+                    <h2 class="text-xl font-semibold">Create a Story</h2>
+                    <form id="storyForm">
+                        <div class="mb-3">
+                            <label for="storyInput" class="block mb-1">Your Story</label>
+                            <input type="text" id="storyInput" class="w-full p-2 border border-gray-300 rounded">
+                            <p id="storyError" class="text-red-500 mt-2 hidden">Story must be at least 3 characters long.</p>
+                        </div>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
